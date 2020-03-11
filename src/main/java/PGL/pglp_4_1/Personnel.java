@@ -15,7 +15,7 @@ public class Personnel {
 		public String prenom;
 		public String fonction;
 		public LocalDate dateNaissance;
-		public ArrayList<NumTel> numTelephones;
+		public ArrayList<NumTel> numsTelephone;
 		
 		public Builder(String nom, String prenom, String fonction, LocalDate dateNaissance) {
 			this.nom = nom;
@@ -24,13 +24,22 @@ public class Personnel {
 			this.dateNaissance= dateNaissance;
 		}
 		
-		public Builder numTelephones(NumTel num) {
-			this.numTelephones.add(num);
+		public Builder numsTelephone(NumTel num) {
+			this.numsTelephone.add(num);
 			return this;
 		}
 		
+		public Personnel build() {
+			return new Personnel(this);
+		}
 	}
-	
+	private Personnel(Builder builder) {
+		nom = builder.nom;
+		prenom = builder.prenom;
+		fonction = builder.fonction;
+		dateNaissance = builder.dateNaissance;
+		numsTel = builder.numsTelephone;
+	}
 
 
 }
