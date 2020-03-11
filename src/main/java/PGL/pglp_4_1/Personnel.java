@@ -3,29 +3,34 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 public class Personnel {
 	
-	private String nom;
-	private String prenom;
-	private String fonction;
-	private LocalDate dateNaissance;
-	private ArrayList<NumTel> numsTel;
+	public String nom;
+	public String prenom;
+	public String fonction;
+	public LocalDate dateNaissance;
+	public ArrayList<NumTel> numsTel;
 	
-	public String getNom() {
-		return nom;
+	public static class Builder {
+		
+		public String nom;
+		public String prenom;
+		public String fonction;
+		public LocalDate dateNaissance;
+		public ArrayList<NumTel> numTelephones;
+		
+		public Builder(String nom, String prenom, String fonction, LocalDate dateNaissance) {
+			this.nom = nom;
+			this.prenom = prenom;
+			this.fonction = fonction;
+			this.dateNaissance= dateNaissance;
+		}
+		
+		public Builder numTelephones(NumTel num) {
+			this.numTelephones.add(num);
+			return this;
+		}
+		
 	}
-	public String getPrenom() {
-		return prenom;
-	}
-	public String getFonction() {
-		return fonction;
-	}
-	public LocalDate getDateNaissance() {
-		return dateNaissance;
-	}
-	public ArrayList<NumTel> getNumsTel() {
-		return numsTel;
-	}
-	public void setNumsTel(ArrayList<NumTel> numsTel) {
-		this.numsTel = numsTel;
-	}
+	
+
 
 }
